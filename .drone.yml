@@ -10,21 +10,16 @@ platform:
 clone:
   disable: true
 steps:
-  - name: greeting
-    image: alpine
+  - name: build_exe
+    pull: if-not-exists
+    image: golang:1.18
     commands:
+      - export GOOS=linux
+      - export GOARCH=amd64
+      - export CGO_ENABLED=0
       - echo hello
-      - echo world
-  # - name: build_exe
-  #   pull: if-not-exists
-  #   image: golang:1.18
-  #   commands:
-  #     - export GOOS=linux
-  #     - export GOARCH=amd64
-  #     - export CGO_ENABLED=0
-  #     - go build -mod=mod -o app controller/gamerouter/*.go
-  #   volumes:
-  #     - name: gocache
-  #       path: /root/.cache/go-build
-  #     - name: gomodcache
-  #       path: /go/pkg/mod
+    # volumes:
+    #   - name: gocache
+    #     path: /root/.cache/go-build
+    #   - name: gomodcache
+    #     path: /go/pkg/mod
