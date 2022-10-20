@@ -11,6 +11,7 @@ func main() {
 	r.GET("/", helloWorld)
 	r.Run(":80")
 	// 發布測試
+	// t
 }
 
 func helloWorld(c *gin.Context) {
