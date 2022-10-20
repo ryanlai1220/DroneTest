@@ -12,11 +12,8 @@ clone:
 steps:
   - name: build_exe
     pull: if-not-exists
-    image: golang:1.18
+    image: alpine
     commands:
-      - export GOOS=linux
-      - export GOARCH=amd64
-      - export CGO_ENABLED=0
       - echo hello
     # volumes:
     #   - name: gocache
